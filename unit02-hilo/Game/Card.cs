@@ -47,8 +47,33 @@ namespace unit02_hilo
                 case 4:
                     suit = 'D';
                     break;
-            }
+            } // exit switch case
             
-        }
+        } // exit Draw()
+
+        public void Display()
+        {
+            string val;
+            switch(value)
+            {
+                case 1:
+                    val = "A";
+                    break;
+                case 11:
+                    val = "J";
+                    break;
+                case 12:
+                    val = "Q";
+                    break;
+                case 13:
+                    val = "K";
+                    break;
+                default:
+                    val = $"{value}";
+                    break;
+                
+            } // exit switch case
+            Console.WriteLine($"{val}{suit}");
+        } // exit Display
     }
 }
