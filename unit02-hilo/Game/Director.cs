@@ -37,7 +37,6 @@ namespace unit02_hilo
         /// Starts the game by running the game's loop.
         /// 
         /// </summary>
-
         public void StartGame()
         {
             while (isPlaying)
@@ -47,11 +46,13 @@ namespace unit02_hilo
                 // Ask for higher or lower
                 Hilo();
                 // Compare card values. 
-                // VVV MOVE CARD UPDATES FROM DoUpdates() TO HERE. 
                 Compare();
-                // VVV NEEDS TO UPDATE SCORES
+                // Add this round's score to totalScore
                 UpdateScores();
+                // Display the results of the round
                 DoOutputs();
+                // Ask the user if they would like to keep
+                // playing (if they haven't lost yet)
                 if (isPlaying)
                 {
                     KeepPlaying();
@@ -60,7 +61,12 @@ namespace unit02_hilo
             } // exit (isPlaying) loop
         } // exit StartGame()
 
-
+        /// <summary>
+        /// Turns the flipped card of the last round into the current card
+        /// for this round. Also generates a new flipped card and resets
+        /// the round's score to 0.
+        /// 
+        /// </summary>
         public void NewRound()
         {
             // Moved draws here. MAKE SURE IT WORKS
@@ -108,6 +114,12 @@ namespace unit02_hilo
             } // exit (!validInput) loop
         } // exit Hilo()
 
+        /// <summary>
+        /// Determines if the flipped card is higher or lower than the
+        /// current card and determines if the player's guess was
+        /// correct.
+        /// 
+        /// </summary>
         public void Compare()
         {
             status = 't';
@@ -133,6 +145,11 @@ namespace unit02_hilo
 
         } // exit Compare()
 
+        /// <summary>
+        /// Adds the score from this round to the total score for the game.
+        /// If the score is equal to or less than 0, it also ends the game.
+        /// 
+        /// </summary>
         public void UpdateScores()
         {
             totalScore += score;
@@ -144,12 +161,21 @@ namespace unit02_hilo
         }
 
 
+        /// <summary>
+        /// Displays what the results for the round were.
+        /// 
+        /// </summary>
         public void DoOutputs()
         {
             Console.WriteLine($"Next card was: {card2.value}");
             Console.WriteLine($"Your score is: {totalScore}");
         } // exit DoOutputs()
 
+        /// <summary>
+        /// Prompts the user if they would like to keep playing
+        /// (if they haven't lost yet.)
+        /// 
+        /// </summary>
         public void KeepPlaying()
         {
             Console.Write("Play again? [y/n] ");
