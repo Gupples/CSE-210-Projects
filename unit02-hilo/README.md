@@ -1,0 +1,1 @@
+This is the README file for the Hilo project. I will update this when the game is completely finished.
