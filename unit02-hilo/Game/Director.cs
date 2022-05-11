@@ -48,7 +48,9 @@ namespace unit02_hilo
                 // Ask for higher or lower
                 Hilo();
                 // Compare card values. 
+                // VVV MOVE CARD UPDATES FROM DoUpdates() TO HERE. 
                 Compare();
+                // VVV NEEDS TO UPDATE SCORES
                 DoUpdates();
                 DoOutputs();
                 if (isPlaying)
@@ -95,6 +97,11 @@ namespace unit02_hilo
 
         public void Compare()
         {
+            // Moved draws here. MAKE SURE IT WORKS
+            // WITH THE FIRST TIME THING (see class diagrams)
+            card1.value = card2.value;
+            card2.Draw();
+
             if (card1.value > card2.value)
             {
                 status = 'l';
@@ -119,8 +126,6 @@ namespace unit02_hilo
 
         public void DoUpdates()
         {
-            card1.value = card2.value;
-            card2.Draw();
             totalScore += score;
             // if score <= 0, game is over.
             if (totalScore <= 0)
