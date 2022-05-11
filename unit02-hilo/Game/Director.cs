@@ -122,7 +122,8 @@ namespace unit02_hilo
 
         public void DoOutputs()
         {
-
+            Console.WriteLine($"Next card was: {card2.value}");
+            Console.WriteLine($"Your score is: {totalScore}");
         }
 
 
