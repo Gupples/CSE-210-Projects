@@ -51,6 +51,10 @@ namespace unit02_hilo
                 Compare();
                 DoUpdates();
                 DoOutputs();
+                if (isPlaying)
+                {
+                    KeepPlaying();
+                }
 
             } // exit (isPlaying) loop
         } // exit StartGame()
@@ -118,12 +122,27 @@ namespace unit02_hilo
             card1.value = card2.value;
             card2.Draw();
             totalScore += score;
+            // if score <= 0, game is over.
+            if (totalScore <= 0)
+            {
+                isPlaying = false;
+            }
         } // exit DoUpdates()
 
         public void DoOutputs()
         {
             Console.WriteLine($"Next card was: {card2.value}");
             Console.WriteLine($"Your score is: {totalScore}");
+        } // exit DoOutputs()
+
+        public void KeepPlaying()
+        {
+            Console.Write("Play again? ");
+            string playAgain = Console.ReadLine();
+            if (playAgain.ToLower() != "y")
+            {
+                isPlaying = false;
+            } 
         }
 
 
