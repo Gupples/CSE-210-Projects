@@ -23,13 +23,31 @@ namespace unit02_hilo
         }
 
         /// <summary>
-        /// will generate a new value for Card
-        /// between 1 and 13
+        /// Will generate a new value 
+        /// and suit for the card.
         /// </summary>
         public void Draw()
         {
+            DetermineSuit();
+            DetermineValue();
+        }
+        
+        /// <summary>
+        /// Will generate a new value for Card
+        /// between 1 and 13
+        /// </summary>
+        public void DetermineValue()
+        {
             Random random = new Random();
             value = random.Next(1, 14);
+        }
+        
+        /// <summary>
+        /// Will randomly generate a suit for the card.
+        /// </summary>
+        public void DetermineSuit()
+        {
+            Random random = new Random();
             int suitHolder = random.Next(1, 5);
             // Credit to w3schools for syntax and
             // CS124 and CS165 for the idea to use a switch case.
