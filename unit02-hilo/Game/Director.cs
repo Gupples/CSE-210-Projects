@@ -178,14 +178,33 @@ namespace unit02_hilo
         /// </summary>
         public void KeepPlaying()
         {
-            Console.Write("Play again? [y/n] ");
-            string playAgain = Console.ReadLine();
-            if (playAgain.ToLower() != "y")
+            string playAgain = "USER HAS NOT ENTERED ANYTHING YET.";
+            bool validInput = false;
+
+            while (!validInput)
             {
-                isPlaying = false;
-            } 
-            Console.WriteLine();
-        }
+                Console.Write("Play again? [y/n] ");
+                playAgain = Console.ReadLine();
+                if (playAgain.ToLower() == "y")
+                {
+                    // isPlaying is already true.
+                    validInput = true;
+                } 
+                // User has stopped playing
+                else if (playAgain.ToLower() == "n")
+                {
+                    isPlaying = false;
+                    validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine($"Sorry; '{playAgain}' was not valid");
+                    Console.WriteLine("input. Please type 'y' or 'n'.");
+                }
+                Console.WriteLine();
+            } // exit (!validInput) loop
+            
+        } // exit KeepPlaying()
 
 
     } // exit Director class
