@@ -17,16 +17,23 @@ namespace unit02_hilo
         int score;
         int totalScore;
         char guess;
+        char status;
 
         /// <summary>
         /// Constructs a new instance of Director.
-        /// Will also initialize a value for the first 
-        /// card.
+        /// Will also initialize a random value for the first card
+        /// and all initial values as 0, 't' (for tie) or true as applicable.
         /// 
         /// </summary>
         public Director()
         {
             card1.Draw();
+            card2.Draw();
+            score = 0;
+            totalScore = 0;
+            guess = '0';
+            isPlaying = true;
+            status = 't'; //
         }
 
         /// <summary>
@@ -38,7 +45,12 @@ namespace unit02_hilo
         {
             while (isPlaying)
             {
-                
+                // Ask for higher or lower
+                Hilo();
+                // Compare card values. 
+                Compare();
+                DoUpdates();
+
             } // exit (isPlaying) loop
         } // exit StartGame()
 
@@ -75,6 +87,36 @@ namespace unit02_hilo
                 }
             } // exit (!validInput) loop
         } // exit Hilo()
+
+        public void Compare()
+        {
+            if (card1.value > card2.value)
+            {
+                status = 'l';
+            }
+            else if (card1.value < card2.value)
+            {
+                status = 'h';
+            }
+
+            if (guess == status)
+            {
+                score = 100;
+            }
+            else
+            {
+                score = -75;
+            }
+
+        }
+
+        public void DoUpdates()
+        {
+            card1.value = card2.value;
+            card2.Draw();
+            totalScore += score;
+
+        }
 
 
 
