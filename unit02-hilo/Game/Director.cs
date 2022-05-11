@@ -11,8 +11,8 @@ namespace unit02_hilo
     /// </summary>
     public class Director
     {
-        Card card1;
-        Card card2;
+        Card card1 = new Card();
+        Card card2 = new Card();
         bool isPlaying;
         int score;
         int totalScore;
@@ -30,7 +30,7 @@ namespace unit02_hilo
             card1.Draw();
             card2.Draw();
             score = 0;
-            totalScore = 0;
+            totalScore = 300;
             guess = '0';
             isPlaying = true;
             status = 't'; //
@@ -86,7 +86,7 @@ namespace unit02_hilo
                         Console.WriteLine($"I'm sorry; '{hiloInput}' was not valid");
                         Console.WriteLine($"input. Please type 'h' or 'l'. ");
                     }
-                    Console.WriteLine($"The card is :{card1.value}");
+                    Console.WriteLine($"The card is: {card1.value}");
                     Console.Write("Higher or lower? [h/l] ");
                     hiloInput = Console.ReadLine();  
                 }
@@ -143,6 +143,7 @@ namespace unit02_hilo
             {
                 isPlaying = false;
             } 
+            Console.WriteLine();
         }
 
 
