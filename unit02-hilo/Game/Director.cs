@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-
 
 namespace unit02_hilo
 {
@@ -28,7 +26,6 @@ namespace unit02_hilo
         public Director()
         {
             card1.Draw();
-            card2.Draw();
             score = 0;
             totalScore = 300;
             guess = '0';
@@ -45,13 +42,15 @@ namespace unit02_hilo
         {
             while (isPlaying)
             {
+                // Generate new values for the cards
+                NewRound();
                 // Ask for higher or lower
                 Hilo();
                 // Compare card values. 
                 // VVV MOVE CARD UPDATES FROM DoUpdates() TO HERE. 
                 Compare();
                 // VVV NEEDS TO UPDATE SCORES
-                DoUpdates();
+                UpdateScores();
                 DoOutputs();
                 if (isPlaying)
                 {
@@ -60,6 +59,20 @@ namespace unit02_hilo
 
             } // exit (isPlaying) loop
         } // exit StartGame()
+
+
+        public void NewRound()
+        {
+            // Moved draws here. MAKE SURE IT WORKS
+            // WITH THE FIRST TIME THING (see class diagrams)
+            if (card2.value != -1)
+            {
+                card1.value = card2.value;
+            }
+            card2.Draw();
+            score = 0;
+            
+        } // exit UpdateCards()
 
         /// <summary>
         /// Displays the current card's value and 
@@ -86,7 +99,7 @@ namespace unit02_hilo
                     if (hiloInput != "USER HAS NOT GUESSED YET.")
                     {
                         Console.WriteLine($"I'm sorry; '{hiloInput}' was not valid");
-                        Console.WriteLine($"input. Please type 'h' or 'l'. ");
+                        Console.WriteLine($"input. Please type 'h' or 'l'. \n");
                     }
                     Console.WriteLine($"The card is: {card1.value}");
                     Console.Write("Higher or lower? [h/l] ");
@@ -97,11 +110,7 @@ namespace unit02_hilo
 
         public void Compare()
         {
-            // Moved draws here. MAKE SURE IT WORKS
-            // WITH THE FIRST TIME THING (see class diagrams)
-            card1.value = card2.value;
-            card2.Draw();
-
+            status = 't';
             if (card1.value > card2.value)
             {
                 status = 'l';
@@ -124,7 +133,7 @@ namespace unit02_hilo
 
         } // exit Compare()
 
-        public void DoUpdates()
+        public void UpdateScores()
         {
             totalScore += score;
             // if score <= 0, game is over.
@@ -132,7 +141,8 @@ namespace unit02_hilo
             {
                 isPlaying = false;
             }
-        } // exit DoUpdates()
+        }
+
 
         public void DoOutputs()
         {
@@ -142,7 +152,7 @@ namespace unit02_hilo
 
         public void KeepPlaying()
         {
-            Console.Write("Play again? ");
+            Console.Write("Play again? [y/n] ");
             string playAgain = Console.ReadLine();
             if (playAgain.ToLower() != "y")
             {
