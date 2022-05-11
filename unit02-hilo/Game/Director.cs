@@ -74,8 +74,15 @@ namespace unit02_hilo
             if (card2.value != -1)
             {
                 card1.value = card2.value;
+                card1.suit = card2.suit;
             }
             card2.Draw();
+            // While loop guarantees you never flip the same card twice for
+            // the game.
+            while (card1.value == card2.value && card1.suit == card2.suit)
+            {
+                card2.Draw();
+            }
             score = 0;
             
         } // exit UpdateCards()
@@ -107,7 +114,8 @@ namespace unit02_hilo
                         Console.WriteLine($"I'm sorry; '{hiloInput}' was not valid");
                         Console.WriteLine($"input. Please type 'h' or 'l'. \n");
                     }
-                    Console.WriteLine($"The card is: {card1.value}");
+                    Console.Write("The card is: ");
+                    card1.Display();
                     Console.Write("Higher or lower? [h/l] ");
                     hiloInput = Console.ReadLine();  
                 }
@@ -167,7 +175,8 @@ namespace unit02_hilo
         /// </summary>
         public void DoOutputs()
         {
-            Console.WriteLine($"Next card was: {card2.value}");
+            Console.Write($"Next card was: ");
+            card2.Display();
             Console.WriteLine($"Your score is: {totalScore}");
         } // exit DoOutputs()
 
