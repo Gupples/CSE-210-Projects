@@ -50,6 +50,7 @@ namespace unit02_hilo
                 // Compare card values. 
                 Compare();
                 DoUpdates();
+                DoOutputs();
 
             } // exit (isPlaying) loop
         } // exit StartGame()
@@ -103,24 +104,26 @@ namespace unit02_hilo
             {
                 score = 100;
             }
+            // Ties are not higher OR lower, so technically, are wrong either
+            // way.
             else
             {
                 score = -75;
             }
 
-        }
+        } // exit Compare()
 
         public void DoUpdates()
         {
             card1.value = card2.value;
             card2.Draw();
             totalScore += score;
+        } // exit DoUpdates()
+
+        public void DoOutputs()
+        {
 
         }
-
-
-
-
 
 
     } // exit Director class
