@@ -11,6 +11,7 @@ namespace unit02_hilo
     public class Card
     {
         public int value; // 1-13.
+        public char suit; // (S)pades, (H)earts, (C)lubs, (D)iamonds
 
         /// <summary>
         /// Constructs a new instance of Card
@@ -18,6 +19,7 @@ namespace unit02_hilo
         public Card()
         {
             value = -1;
+            suit = '_';
         }
 
         /// <summary>
@@ -28,6 +30,25 @@ namespace unit02_hilo
         {
             Random random = new Random();
             value = random.Next(1, 14);
+            int suitHolder = random.Next(1, 5);
+            // Credit to w3schools for syntax and
+            // CS124 and CS165 for the idea to use a switch case.
+            switch (suitHolder)
+            {
+                case 1:
+                    suit = 'S';
+                    break;
+                case 2:
+                    suit = 'H';
+                    break;
+                case 3:
+                    suit = 'C';
+                    break;
+                case 4:
+                    suit = 'D';
+                    break;
+            }
+            
         }
     }
 }
