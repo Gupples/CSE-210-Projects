@@ -1,7 +1,7 @@
 using System;
 
 
-namespace Unit03.Game
+namespace unit03_jumper
 {
     // TODO: Implement the Seeker class as follows...
 

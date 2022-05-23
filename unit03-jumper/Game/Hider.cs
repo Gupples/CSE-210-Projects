@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace Unit03.Game 
+namespace unit03_jumper 
 {
     /// <summary>
     /// <para>The person hiding from the Seeker.</para>

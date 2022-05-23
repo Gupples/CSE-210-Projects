@@ -1,4 +1,4 @@
-namespace Unit03.Game
+namespace unit03_jumper
 {
     /// <summary>
     /// <para>A person who directs the game.</para>
