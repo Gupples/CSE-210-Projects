@@ -5,70 +5,67 @@ using System.Collections.Generic;
 namespace unit03_jumper 
 {
     /// <summary>
-    /// <para>The person hiding from the Seeker.</para>
+    /// <para>The word the player is guessing.</para>
     /// <para>
-    /// The responsibility of Hider is to keep track of its location and distance from the seeker.
+    /// The responsibility of Word is to generate a wor and keep track of what
+    /// the user has guessed.
     /// </para>
     /// </summary>
-    public class Hider
+    public class Word
     {
-        public int location = 0;
-        private List<int> distance = new List<int>();
+        private string _value;
+        private char _guess;
+        // VVV List of characters guessed.
+        private List<char> _Guesses = new List<char>();
+        private string _progress;
 
         /// <summary>
         /// Constructs a new instance of Hider. 
         /// </summary>
-        public Hider()
+        public Word()
         {
-            Random random = new Random();
-            location = random.Next(1001);
-            // start with two so GetHint always works
-            distance.Add(0);
-            distance.Add(0);
+            // For now, value will always be "apple"
+            _value = "apple";
+            _progress = "_ _ _ _ _";
+            
         }
 
         /// <summary>
-        /// Gets a hint for the seeker.
+        /// Updates progress for player to see.
         /// </summary>
-        /// <returns>A new hint.</returns>
-        public string GetHint()
+        /// <returns>A new hint line.</returns>
+        public void UpdateProgress()
         {
-            int current = distance[distance.Count - 1];
-            int previous = distance[distance.Count - 2];
-
-            string hint = "(-.-) Nap time.";
-            if (current == 0)
+            _Guesses.Add(_guess);
+            for (int i = 0; i > _progress.Length; i += 2)
             {
-                hint = "(;.;) You found me!";
+                ...
             }
-            else if (current > previous)
-            {
-                hint = "(^.^) Getting colder!";
-            }
-            else if (current < previous)
-            {
-                hint = "(>.<) Getting warmer!";
-            }
-
-            return hint;
         }
 
         /// <summary>
         /// Whether or not the hider has been found.
         /// </summary>
-        /// <returns>True if found; false if otherwise.</returns>
-        public bool IsFound()
+        /// <returns>True if guessed; false if otherwise.</returns>
+        public bool IsGuessed()
         {
-            return distance[distance.Count - 1] == 0;
-        }
+            foreach (char letter in _value)
+            {
+                if (!_Guesses.Contains(letter))
+                {
+                    return false;
+                }
+            }
+            return true;
+        } // exit IsGuessed()
 
         /// <summary>
         /// Watches the seeker by keeping track of how far away it is.
         /// </summary>
         /// <param name="seeker">The seeker to watch.</param>
-        public void WatchSeeker(Seeker seeker)
+        public void WatchSeeker(Word word)
         {
-            int newDistance = Math.Abs(location - seeker.GetLocation());
+            int newDistance = Math.Abs(location - word.GetLocation());
             distance.Add(newDistance);
         }
     }
