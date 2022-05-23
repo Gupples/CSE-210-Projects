@@ -8,9 +8,9 @@ namespace unit03_jumper
     /// </summary>
     public class Director
     {
-        private Hider hider = new Hider();
+        private Word word = new Word();
         private bool isPlaying = true;
-        private Seeker seeker = new Seeker();
+        private Guy Guy = new Guy();
         private TerminalService terminalService = new TerminalService();
 
         /// <summary>
@@ -34,32 +34,32 @@ namespace unit03_jumper
         }
 
         /// <summary>
-        /// Moves the seeker to a new location.
+        /// Moves the Guy to a new location.
         /// </summary>
         private void GetInputs()
         {
             // VVV Had to comment out this part.
-            // terminalService.WriteText(hider.location.ToString());
+            // terminalService.WriteText(word.location.ToString());
             int location = terminalService.ReadNumber("\nEnter a location [1-1000]: ");
-            seeker.MoveLocation(location);
+            Guy.MoveLocation(location);
         }
 
         /// <summary>
-        /// Keeps watch on where the seeker is moving.
+        /// Keeps watch on where the Guy is moving.
         /// </summary>
         private void DoUpdates()
         {
-            hider.WatchSeeker(seeker);
+            // word.WatchGuy(Guy);
         }
 
         /// <summary>
-        /// Provides a hint for the seeker to use.
+        /// Provides a hint for the Guy to use.
         /// </summary>
         private void DoOutputs()
         {
-            string hint = hider.GetHint();
+            string hint = word.GetHint();
             terminalService.WriteText(hint);
-            if (hider.IsFound())
+            if (word.IsFound())
             {
                 isPlaying = false;
             }
