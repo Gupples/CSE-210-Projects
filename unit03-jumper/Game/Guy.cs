@@ -13,7 +13,7 @@ namespace unit03_jumper
         /// The responsibility of a Seeker is to keep track of its location.
         /// </para>
         /// </summary>
-        public class Seeker
+        public class Guy
         {
             private int location;
 
@@ -23,7 +23,7 @@ namespace unit03_jumper
             /// <summary>
             /// Constructs a new instance of Seeker.
             /// </summary>
-            public Seeker()
+            public Guy()
             {
                 location = 0;
             }
