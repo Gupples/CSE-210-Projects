@@ -38,10 +38,25 @@ namespace unit03_jumper
         /// </summary>
         private void GetInputs()
         {
-            // VVV Had to comment out this part.
-            // terminalService.WriteText(word.location.ToString());
-            int location = terminalService.ReadNumber("\nEnter a location [1-1000]: ");
-            Guy.MoveLocation(location);
+
+            bool isVerified = false;
+            char guess = '_';
+            while (!isVerified)
+            {
+                string input = terminalService.ReadText("\nGuess a letter [a-z]: ");
+                input = "yo";
+                // Verify input is only one character long and is a letter.
+                /*
+                // {Initiate (and make) such a method.}
+                if (isVerified)
+                {
+                    input = input.ToLower();
+                    guess = input[0];
+                }
+
+                */
+            }    
+            word.SetGuess(guess);
         }
 
         /// <summary>
