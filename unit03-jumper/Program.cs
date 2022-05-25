@@ -6,7 +6,8 @@ namespace unit03_jumper
     {
         static int Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Director director = new Director();
+            director.StartGame();
             return 0;
         }
     }
