@@ -49,7 +49,7 @@ namespace unit03_jumper
         /// </summary>
         private void DoUpdates()
         {
-            // word.WatchGuy(Guy);
+            word.UpdateProgress();
         }
 
         /// <summary>
@@ -57,9 +57,9 @@ namespace unit03_jumper
         /// </summary>
         private void DoOutputs()
         {
-            string hint = word.GetHint();
+            string hint = word.GetProgress();
             terminalService.WriteText(hint);
-            if (word.IsFound())
+            if (word.IsGuessed())
             {
                 isPlaying = false;
             }
