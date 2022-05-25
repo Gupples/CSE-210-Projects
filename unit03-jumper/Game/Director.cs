@@ -44,17 +44,15 @@ namespace unit03_jumper
             while (!isVerified)
             {
                 string input = terminalService.ReadText("\nGuess a letter [a-z]: ");
-                input = "yo";
+            
                 // Verify input is only one character long and is a letter.
-                /*
-                // {Initiate (and make) such a method.}
+                VerifyInput(input);
                 if (isVerified)
                 {
+                    isVerified = true;
                     input = input.ToLower();
                     guess = input[0];
-                }
-
-                */
+                }                
             }    
             word.SetGuess(guess);
         }
@@ -79,6 +77,37 @@ namespace unit03_jumper
                 isPlaying = false;
             }
             
-        }
-    }
-}
+        } // exit DoOutputs()
+
+        /// <summary>
+        /// Verifies user's input is only a single alphabetical character.
+        /// </summary>
+        /// <param name="input">The proposed input to be verified</param>
+        /// <returns>True if it is verified, false if not.</returns>
+        private bool VerifyInput(string input)
+        {
+            bool verified = false;
+            // Is input alphabetical?
+            foreach (char c in input)
+            {
+                // thanks docs.microsoft.com for the char.IsLetter() method.
+                if (!char.IsLetter(c))
+                {
+                    terminalService.WriteText("Input must only contain letters.");
+                    return verified;
+                }
+            }
+            // Is input only one character long?
+            if (input.Length == 1)
+            {
+                verified = true;
+            }
+            // String is too long.
+            else
+            {
+                terminalService.WriteText("Input must be only one character long.");
+            }
+            return verified;
+        } // exit VerifyInput()
+    } // exit Director class
+} // exit namespace
