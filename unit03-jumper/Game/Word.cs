@@ -44,18 +44,74 @@ namespace unit03_jumper
 
         }
 
+        // GETTERS AND SETTERS
+        
+        public string GetProgress()
+        {
+            return _progress;
+        }
+
+        public void SetGuess(char guess)
+        {
+            _guess = guess;
+        }
+
         /// <summary>
         /// Updates progress for player to see.
         /// </summary>
         /// <returns>A new hint line.</returns>
         public void UpdateProgress()
         {
-            _Guesses.Add(_guess);
-            for (int i = 0; i > _progress.Length; i += 2)
+            // Check if it has already been guessed.
+            if (!_Guesses.Contains(_guess))
             {
-                ...
+                // Add guess to list of guesses.
+                _Guesses.Add(_guess);
+                
+                // if the word has that letter 
+                if (_value.Contains(_guess))
+                {
+                    // Make value for walking through _value
+                    int j = 0;
+                    // Make a value for converting _progress
+                    string temp_Progress = "";
+                    // Start walking through _progress and make changes
+                    for (int i = 0; i < _progress.Length; i++, j++)
+                    {
+                        // Skip the spaces
+                        if (_progress[i] == ' ')
+                        {
+                            i++;
+                        }
+                        // If the guess matches the slot in value, insert into
+                        // temp string.
+                        if (_value[j] == (_guess))
+                        {
+                            temp_Progress += _guess;
+                        }
+                        // If not, _progress should stay the same.
+                        else 
+                        {
+                            temp_Progress += _progress[i];
+                        }
+                    } // exit for loop; changes to _progress has been made.
+                    _progress = temp_Progress;
+                } // exit if (_value.Contains(_guess))
+                // guess has not been guessed yet, but is not in the word.
+                else
+                {
+                    // Initiate method in Guy that makes him lose a life.
+                }
+            } // exit if(!_Guesses.Contains(_guess))
+            // Player has already guessed that.
+            else
+            {
+                Console.WriteLine($"You've already guessed {_guess}.");
+                // Initiate method in Guy that makes him lose a life.
             }
-        }
+        } // exit UpdateProgress()
+
+
 
         /// <summary>
         /// Whether or not the hider has been found.
@@ -73,14 +129,16 @@ namespace unit03_jumper
             return true;
         } // exit IsGuessed()
 
+        // VVV IS THIS METHOD NECESSARY? VVV
+
         /// <summary>
         /// Watches the seeker by keeping track of how far away it is.
         /// </summary>
         /// <param name="seeker">The seeker to watch.</param>
         public void WatchSeeker(Word word)
         {
-            int newDistance = Math.Abs(location - word.GetLocation());
-            distance.Add(newDistance);
+            // int newDistance = Math.Abs(location - word.GetLocation());
+            // distance.Add(newDistance);
         }
     }
 }
