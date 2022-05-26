@@ -66,9 +66,9 @@ namespace unit03_jumper
         /// </summary>
         private void DoUpdates()
         {
-            string progress1 = word.GetProgress();
+            string keyword = word.GetValue();
             word.UpdateProgress();
-            if (progress1 == word.GetProgress())
+            if (!keyword.Contains(word.GetGuess()))
             {
                 Guy.LoseALife();
             }
