@@ -29,6 +29,7 @@ namespace unit03_jumper
             public Guy()
             {
                 lives = 4;
+                isAlive = true;
                 Picture.Add(@"  ___ ");
                 Picture.Add(@" /___\");
                 Picture.Add(@" \   /");
@@ -61,11 +62,12 @@ namespace unit03_jumper
             public void LoseALife()
             {
                 lives--;
+                isAlive = false;
             }
 
             public void Display()
             {
-                if (lives == 0)
+                if (!isAlive)
                 {
                     Picture[4] = "   X";
                     Picture.Add("You died!");
@@ -75,7 +77,7 @@ namespace unit03_jumper
                     Console.WriteLine(Picture[i]);
                 }
                 Console.Write(Picture[Picture.Count - 1]);
-                if (lives == 0)
+                if (!isAlive)
                 {
                     Console.WriteLine();
                 }
