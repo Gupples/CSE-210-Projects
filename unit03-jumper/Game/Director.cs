@@ -79,6 +79,7 @@ namespace unit03_jumper
         /// </summary>
         private void DoOutputs()
         {
+            word.ShowGuesses();
             string hint = word.GetProgress();
             terminalService.WriteText(hint);
             terminalService.WriteText("");

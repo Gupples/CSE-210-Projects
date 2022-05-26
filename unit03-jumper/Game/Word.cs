@@ -112,7 +112,19 @@ namespace unit03_jumper
             }
         } // exit UpdateProgress()
 
-
+        public void ShowGuesses()
+        {
+            Console.Write("Guesses: ");
+            for (int i = 0; i < _Guesses.Count; i++)
+            {
+                Console.Write(_Guesses[i]);
+                if (i + 1 != _Guesses.Count)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine("");
+        } // exit ShowGuesses()
 
         /// <summary>
         /// Whether or not the hider has been found.
