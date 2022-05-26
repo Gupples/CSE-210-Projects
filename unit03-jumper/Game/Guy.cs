@@ -74,7 +74,7 @@ namespace unit03_jumper
                 if (!isAlive)
                 {
                     Picture[4] = "   X";
-                    Picture.Add("You died! (ಥ﹏ಥ)");
+                    Picture.Add("You died! (X.X)");
                 }
                 for (int i = 4 - lives; i < Picture.Count - 1; i++)
                 {
