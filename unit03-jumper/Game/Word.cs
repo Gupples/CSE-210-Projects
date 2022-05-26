@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-// using System.IO;
+using System.IO;
 
 
 namespace unit03_jumper 
@@ -26,21 +26,17 @@ namespace unit03_jumper
         public Word()
         {
             // For now, value will always be "apple"
-            _value = "apple";
-            _progress = "_ _ _ _ _";
-
-            // VVV Uncomment when program works for full list of words.
-            /* 
-            List<string> lines = new List<string>(File.ReadLines("Words.txt"));
+            
+            List<string> lines = new List<string>(File.ReadLines(@"Game\Words.txt"));
             Random rand = new Random();
-            int randomIndex = rand.Next(0, lines.Count());
+            int randomIndex = rand.Next(0, lines.Count);
             _value = lines[randomIndex];
-            _progress = "_"
+            _progress = "_";
             for (int i = 0; i < _value.Length - 1; i++)
             {
                 _progress += " _";
             }
-            */
+            
 
         }
 
