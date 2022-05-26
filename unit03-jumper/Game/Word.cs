@@ -56,6 +56,11 @@ namespace unit03_jumper
             _guess = guess;
         }
 
+        public string GetValue()
+        {
+            return _value;
+        }
+
         /// <summary>
         /// Updates progress for player to see.
         /// </summary>
@@ -94,14 +99,14 @@ namespace unit03_jumper
                         {
                             temp_Progress += _progress[i];
                         }
+                        if (i != _progress.Length)
+                        {
+                            temp_Progress += " ";
+                        }
                     } // exit for loop; changes to _progress has been made.
                     _progress = temp_Progress;
                 } // exit if (_value.Contains(_guess))
                 // guess has not been guessed yet, but is not in the word.
-                else
-                {
-                    // Initiate method in Guy that makes him lose a life.
-                }
             } // exit if(!_Guesses.Contains(_guess))
             // Player has already guessed that.
             else
@@ -129,16 +134,5 @@ namespace unit03_jumper
             return true;
         } // exit IsGuessed()
 
-        // VVV IS THIS METHOD NECESSARY? VVV
-
-        /// <summary>
-        /// Watches the seeker by keeping track of how far away it is.
-        /// </summary>
-        /// <param name="seeker">The seeker to watch.</param>
-        public void WatchSeeker(Word word)
-        {
-            // int newDistance = Math.Abs(location - word.GetLocation());
-            // distance.Add(newDistance);
-        }
     }
 }

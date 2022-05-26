@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 
 namespace unit03_jumper
@@ -10,12 +11,14 @@ namespace unit03_jumper
         /// <summary>
         /// <para>The person looking for the Hider.</para>
         /// <para>
-        /// The responsibility of a Seeker is to keep track of its location.
+        /// The responsibility of a Seeker is to keep track of its lives.
         /// </para>
         /// </summary>
         public class Guy
         {
-            private int location;
+            private int lives;
+            private bool isAlive;
+            private List<string> Picture = new List<string>();
 
 
         // 2) Create the class constructor. Use the following method comment.
@@ -25,31 +28,58 @@ namespace unit03_jumper
             /// </summary>
             public Guy()
             {
-                location = 0;
+                lives = 4;
+                Picture.Add(@"  ___ ");
+                Picture.Add(@" /___\");
+                Picture.Add(@" \   /");
+                Picture.Add(@"  \ /");
+                Picture.Add(@"   O");
+                Picture.Add(@"  /|\");
+                Picture.Add(@"  / \");
+                Picture.Add(@" ");
+                Picture.Add(@"^^^^^^^^");
             }
 
-        // 3) Create the GetLocation() method. Use the following method comment.
+        // 3) Create the GetLives() method. Use the following method comment.
             
             /// <summary>
-            /// Gets the current location.
+            /// Gets the current lives.
             /// </summary>
-            /// <returns>The current location as an int.</returns>
-            public int GetLocation()
+            /// <returns>The current lives as an int.</returns>
+            public int GetLives()
             {
-                return location;
+                return lives;
             }
             
 
-        // 4) Create the MoveLocation(int location) method. Use the following method comment.
+        // 4) Create the Movelives(int lives) method. Use the following method comment.
             
             /// <summary>
-            /// Moves to the given location.
+            /// Moves to the given lives.
             /// </summary>
-            /// <param name="location">The given location.</param>
-            public void MoveLocation(int location)
+            /// <param name="lives">The given lives.</param>
+            public void LoseALife()
             {
-                this.location = location;
+                lives--;
             }
-    
+
+            public void Display()
+            {
+                if (lives == 0)
+                {
+                    Picture[4] = "   X";
+                    Picture.Add("You died!");
+                }
+                for (int i = 4 - lives; i < Picture.Count - 1; i++)
+                {
+                    Console.WriteLine(Picture[i]);
+                }
+                Console.Write(Picture[Picture.Count - 1]);
+                if (lives == 0)
+                {
+                    Console.WriteLine();
+                }
+            }
+
         }
 }

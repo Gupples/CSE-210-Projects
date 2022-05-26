@@ -25,6 +25,7 @@ namespace unit03_jumper
         /// </summary>
         public void StartGame()
         {
+            DoOutputs();
             while (isPlaying)
             {
                 GetInputs();
@@ -41,15 +42,18 @@ namespace unit03_jumper
 
             bool isVerified = false;
             char guess = '_';
+            string input = "_";
             while (!isVerified)
             {
-                string input = terminalService.ReadText("\nGuess a letter [a-z]: ");
-            
+                if (isPlaying)
+                {
+                    input = terminalService.ReadText("\nGuess a letter [a-z]: ");
+                    terminalService.WriteText("");
+                }
                 // Verify input is only one character long and is a letter.
-                VerifyInput(input);
+                isVerified = VerifyInput(input);
                 if (isVerified)
                 {
-                    isVerified = true;
                     input = input.ToLower();
                     guess = input[0];
                 }                
@@ -62,7 +66,12 @@ namespace unit03_jumper
         /// </summary>
         private void DoUpdates()
         {
+            string progress1 = word.GetProgress();
             word.UpdateProgress();
+            if (progress1 == word.GetProgress())
+            {
+                Guy.LoseALife();
+            }
         }
 
         /// <summary>
@@ -72,7 +81,12 @@ namespace unit03_jumper
         {
             string hint = word.GetProgress();
             terminalService.WriteText(hint);
-            if (word.IsGuessed())
+            Guy.Display();
+            if (Guy.GetLives() == 0)
+            {
+                terminalService.WriteText($"The word was '{word.GetValue()}'.");
+            }
+            if (word.IsGuessed() || Guy.GetLives() == 0)
             {
                 isPlaying = false;
             }
