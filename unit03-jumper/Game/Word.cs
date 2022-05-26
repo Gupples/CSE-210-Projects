@@ -108,7 +108,7 @@ namespace unit03_jumper
             else
             {
                 Console.WriteLine($"You've already guessed {_guess}.");
-                // Initiate method in Guy that makes him lose a life.
+
             }
         } // exit UpdateProgress()
 
