@@ -52,6 +52,11 @@ namespace unit03_jumper
             _guess = guess;
         }
 
+        public char GetGuess()
+        {
+            return _guess;
+        }
+
         public string GetValue()
         {
             return _value;
