@@ -62,7 +62,11 @@ namespace unit03_jumper
             public void LoseALife()
             {
                 lives--;
-                isAlive = false;
+                if (lives == 0)
+                {
+                    isAlive = false;  
+                }
+                
             }
 
             public void Display()
