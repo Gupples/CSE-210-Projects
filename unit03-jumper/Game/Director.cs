@@ -81,15 +81,20 @@ namespace unit03_jumper
         {
             string hint = word.GetProgress();
             terminalService.WriteText(hint);
+            terminalService.WriteText("");
             Guy.Display();
             if (Guy.GetLives() == 0)
             {
                 terminalService.WriteText($"The word was '{word.GetValue()}'.");
-            }
-            if (word.IsGuessed() || Guy.GetLives() == 0)
-            {
                 isPlaying = false;
             }
+
+            if (word.IsGuessed())
+            {
+                terminalService.WriteText("\nYou win! ^_^");
+                isPlaying = false;
+            }
+            terminalService.WriteText("");
             
         } // exit DoOutputs()
 
