@@ -81,7 +81,7 @@ namespace unit03_jumper
                     // Make a value for converting _progress
                     string temp_Progress = "";
                     // Start walking through _progress and make changes
-                    for (int i = 0; i < _progress.Length; i++, j++)
+                    for (int i = 0; i < _progress.Length - 1; i++, j++)
                     {
                         // Skip the spaces
                         if (_progress[i] == ' ')
