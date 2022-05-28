@@ -8,7 +8,7 @@ namespace unit03_jumper
     /// <summary>
     /// <para>The word the player is guessing.</para>
     /// <para>
-    /// The responsibility of Word is to generate a wor and keep track of what
+    /// The responsibility of Word is to generate a word and keep track of what
     /// the user has guessed.
     /// </para>
     /// </summary>
@@ -21,12 +21,10 @@ namespace unit03_jumper
         private string _progress;
 
         /// <summary>
-        /// Constructs a new instance of Hider. 
+        /// Constructs a new instance of Word. 
         /// </summary>
         public Word()
         {
-            // For now, value will always be "apple"
-            
             List<string> lines = new List<string>(File.ReadLines(@"Game\Words.txt"));
             Random rand = new Random();
             int randomIndex = rand.Next(0, lines.Count);
@@ -132,7 +130,7 @@ namespace unit03_jumper
         } // exit ShowGuesses()
 
         /// <summary>
-        /// Whether or not the hider has been found.
+        /// Whether or not the word has been guessed.
         /// </summary>
         /// <returns>True if guessed; false if otherwise.</returns>
         public bool IsGuessed()
