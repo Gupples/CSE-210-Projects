@@ -4,14 +4,11 @@ using System.Collections.Generic;
 
 namespace unit03_jumper
 {
-    // TODO: Implement the Seeker class as follows...
-
-    // 1) Add the class declaration. Use the following class comment.
-
         /// <summary>
-        /// <para>The person looking for the Hider.</para>
+        /// <para>The person with the parachute whose life is at stake.</para>
         /// <para>
-        /// The responsibility of a Seeker is to keep track of its lives.
+        /// The responsibility of a Guy is to keep track of its lives
+        /// and to display itself.
         /// </para>
         /// </summary>
         public class Guy
@@ -19,12 +16,9 @@ namespace unit03_jumper
             private int lives;
             private bool isAlive;
             private List<string> Picture = new List<string>();
-
-
-        // 2) Create the class constructor. Use the following method comment.
             
             /// <summary>
-            /// Constructs a new instance of Seeker.
+            /// Constructs a new instance of Guy.
             /// </summary>
             public Guy()
             {
@@ -41,8 +35,6 @@ namespace unit03_jumper
                 Picture.Add(@"^^^^^^^^");
             }
 
-        // 3) Create the GetLives() method. Use the following method comment.
-            
             /// <summary>
             /// Gets the current lives.
             /// </summary>
@@ -51,10 +43,7 @@ namespace unit03_jumper
             {
                 return lives;
             }
-            
-
-        // 4) Create the Movelives(int lives) method. Use the following method comment.
-            
+                        
             /// <summary>
             /// Moves to the given lives.
             /// </summary>
