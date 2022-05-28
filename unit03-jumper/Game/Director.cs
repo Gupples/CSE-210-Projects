@@ -62,7 +62,7 @@ namespace unit03_jumper
         }
 
         /// <summary>
-        /// Keeps watch on where the Guy is moving.
+        /// Keeps track of whether Guy lost a life.
         /// </summary>
         private void DoUpdates()
         {
@@ -75,7 +75,8 @@ namespace unit03_jumper
         }
 
         /// <summary>
-        /// Provides a hint for the Guy to use.
+        /// Displays guesses and guessed letters, as well as the 
+        /// Guy. Also writes end message if the game is over.
         /// </summary>
         private void DoOutputs()
         {
