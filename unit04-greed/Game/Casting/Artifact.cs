@@ -15,7 +15,7 @@ namespace Unit04.Game.Casting
         /// </summary>
     public class Artifact : Actor
     {
-        private string _message;
+        private int _value;
 
     // 2) Create the class constructor. Use the following method comment.
         
@@ -32,21 +32,21 @@ namespace Unit04.Game.Casting
         /// Gets the artifact's message.
         /// </summary>
         /// <returns>The message as a string.</returns>
-        public string GetMessage()
+        public int GetValue()
         {
-            return _message;
+            return _value;
         }
         
 
     // 4) Create the SetMessage(string message) method. Use the following method comment.
         
         /// <summary>
-        /// Sets the artifact's message to the given value.
+        /// Sets the artifact's value to the given value.
         /// </summary>
-        /// <param name="message">The given message.</param>
-        public void SetMessage(string text)
+        /// <param name="number">The given number.</param>
+        public void SetValue(int number)
         {
-            _message = text;
+            _value = number;
         }
     
     } // exit Artifact class

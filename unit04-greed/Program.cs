@@ -52,16 +52,26 @@ namespace Unit04
             robot.SetPosition(new Point(MAX_X / 2, MAX_Y - 15));
             cast.AddActor("robot", robot);
 
-            // load the messages
-            List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>();
 
             // create the artifacts
             Random random = new Random();
             for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
             {
-                string text = ((char)random.Next(33, 126)).ToString();
-                string message = messages[i];
-
+                string text;
+                int value;
+                // determine if it's a rock or a gem.
+                int type = random.Next(0,1);
+                if (type == 0) // rock
+                {
+                    text = "o";
+                    value = -1;
+                }
+                else
+                {
+                    text = "*";
+                    value = 1;
+                }
+                
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
@@ -77,7 +87,7 @@ namespace Unit04
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
                 artifact.SetPosition(position);
-                artifact.SetMessage(message);
+                artifact.SetValue(value);
                 cast.AddActor("artifacts", artifact);
             }
 
