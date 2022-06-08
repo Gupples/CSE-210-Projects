@@ -70,14 +70,15 @@ namespace Unit04.Game.Directing
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
+            banner.SetText(totalScore.ToString());
 
             foreach (Actor actor in artifacts)
             {
+                actor.MoveNext(maxX, maxY);
                 if (robot.GetPosition().Equals(actor.GetPosition()))
                 {
                     Artifact artifact = (Artifact) actor;
                     totalScore += artifact.GetValue();
-                    banner.SetText(totalScore.ToString());
                 }
             } 
         }

@@ -60,7 +60,7 @@ namespace Unit04
                 string text;
                 int value;
                 // determine if it's a rock or a gem.
-                int type = random.Next(0,1);
+                int type = random.Next(0, 2);
                 if (type == 0) // rock
                 {
                     text = "o";
@@ -81,12 +81,14 @@ namespace Unit04
                 int g = random.Next(0, 256);
                 int b = random.Next(0, 256);
                 Color color = new Color(r, g, b);
+                Point velocity = new Point(0, 1);
 
                 Artifact artifact = new Artifact();
                 artifact.SetText(text);
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
                 artifact.SetPosition(position);
+                artifact.SetVelocity(velocity);
                 artifact.SetValue(value);
                 cast.AddActor("artifacts", artifact);
             }
