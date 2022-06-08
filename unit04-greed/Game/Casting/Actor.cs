@@ -84,7 +84,9 @@ namespace Unit04.Game.Casting
             if (y == 0)
             {
                 Random random = new Random();
-                x = random.Next(0, maxX) / 15;
+
+                int column = random.Next(0, maxX) / 15;
+                x = column * 15;
             }
             position = new Point(x, y);
         }
