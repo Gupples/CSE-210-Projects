@@ -71,6 +71,23 @@ namespace Unit04
                     text = "*";
                     value = 1;
                 }
+
+                // Determine how fast the artifact falls
+                int speed = random.Next(0, 4);
+                if (speed == 0)
+                {
+                    speed = 1;
+                }
+                else if(speed == 1)
+                {
+                    speed = 3;
+                }
+                else 
+                {
+                    speed = 5;
+                }
+
+                Point velocity = new Point(0, speed);               
                 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
@@ -81,7 +98,6 @@ namespace Unit04
                 int g = random.Next(0, 256);
                 int b = random.Next(0, 256);
                 Color color = new Color(r, g, b);
-                Point velocity = new Point(0, 1);
 
                 Artifact artifact = new Artifact();
                 artifact.SetText(text);

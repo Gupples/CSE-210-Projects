@@ -80,6 +80,7 @@ namespace Unit04.Game.Directing
                     Artifact artifact = (Artifact) actor;
                     totalScore += artifact.GetValue();
                 }
+
             } 
         }
 

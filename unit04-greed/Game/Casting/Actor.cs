@@ -81,6 +81,11 @@ namespace Unit04.Game.Casting
         {
             int x = ((position.GetX() + velocity.GetX()) + maxX) % maxX;
             int y = ((position.GetY() + velocity.GetY()) + maxY) % maxY;
+            if (y == 0)
+            {
+                Random random = new Random();
+                x = random.Next(0, maxX) / 15;
+            }
             position = new Point(x, y);
         }
 
