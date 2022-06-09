@@ -61,12 +61,14 @@ namespace Unit04
                 int value;
                 // determine if it's a rock or a gem.
                 int type = random.Next(0, 2);
-                if (type == 0) // rock
+                // rock
+                if (type == 0) 
                 {
                     text = "o";
                     value = -1;
                 }
-                else
+                // gem
+                else 
                 {
                     text = "*";
                     value = 1;
@@ -74,14 +76,17 @@ namespace Unit04
 
                 // Determine how fast the artifact falls
                 int speed = random.Next(0, 4);
+                // slow
                 if (speed == 0)
                 {
                     speed = 1;
                 }
+                // medium
                 else if(speed == 1)
                 {
                     speed = 3;
                 }
+                // fast
                 else 
                 {
                     speed = 5;
