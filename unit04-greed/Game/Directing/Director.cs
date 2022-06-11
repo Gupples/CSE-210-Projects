@@ -70,7 +70,7 @@ namespace Unit04.Game.Directing
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
-            banner.SetText(totalScore.ToString());
+            banner.SetText($"Score: {totalScore.ToString()}");
 
             foreach (Actor actor in artifacts)
             {
@@ -79,6 +79,11 @@ namespace Unit04.Game.Directing
                 {
                     Artifact artifact = (Artifact) actor;
                     totalScore += artifact.GetValue();
+                    Point tempPoint = artifact.GetPosition();
+                    Point tempVel = artifact.GetVelocity();
+                    tempPoint.SetY(0);
+                    actor.SetPosition(tempPoint);
+                    
                 }
 
             } 

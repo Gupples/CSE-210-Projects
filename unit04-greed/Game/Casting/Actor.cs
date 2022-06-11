@@ -91,6 +91,7 @@ namespace Unit04.Game.Casting
             position = new Point(x, y);
         }
 
+
         /// <summary>
         /// Sets the actor's color to the given value.
         /// </summary>

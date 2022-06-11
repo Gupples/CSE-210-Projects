@@ -19,8 +19,8 @@ namespace Unit04.Game.Casting
         /// <param name="y">The given y value.</param>
         public Point(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            SetX(x);
+            SetY(y);
         }
 
         /// <summary>
@@ -61,6 +61,24 @@ namespace Unit04.Game.Casting
         public int GetY()
         {
             return y;
+        }
+
+        /// <summary>
+        /// Sets the value of the x coordinate.
+        /// </summary>
+        /// <param name="x">The new x coordinate.</param>
+        public void SetX(int x)
+        {
+            this.x = x;
+        }
+
+        /// <summary>
+        /// Sets the value of the y coordinate.
+        /// </summary>
+        /// <param name="y">The new y coordinate.</param>
+        public void SetY(int y)
+        {
+            this.y = y;
         }
 
         /// <summary>
