@@ -1,7 +1,5 @@
-# Robot Finds Kitten
-Simon Carless once described robotfindskitten as "less a game and more a way of 
-life ... It's fun to wander around until you find a kitten, at which point you feel 
-happy and can start again". I don't think I could have said it better myself!
+# Greed
+Greed is for when you only want the best that comes from above! Catch gems (*) for points and avoid rocks ([]) and their penalties. See how quickly you can gather points!
 
 ---
 ## Getting Started
@@ -35,3 +33,4 @@ root                    (project root folder)
 ## Authors
 * Matt Manley (manleym@byui.edu)
 * Scott Burton (burtons@byui.edu)
+* Jared Davey (dav15024@byui.edu)
