@@ -2,23 +2,18 @@ using System;
 
 namespace Unit04.Game.Casting
 {
-    // TODO: Implement the Artifact class here
 
-    // 1) Add the class declaration. Use the following class comment. Make sure you
-    //    inherit from the Actor class.
-
-        /// <summary>
-        /// <para>An item of cultural or historical interest.</para>
-        /// <para>
-        /// The responsibility of an Artifact is to provide a message about itself.
-        /// </para>
-        /// </summary>
+    /// <summary>
+    /// <para>An item of cultural or historical interest.</para>
+    /// <para>
+    /// The responsibility of an Artifact is to hold a score value.
+    /// </para>
+    /// </summary>
     public class Artifact : Actor
     {
         private int _value;
 
-    // 2) Create the class constructor. Use the following method comment.
-        
+      
         /// <summary>
         /// Constructs a new instance of Artifact.
         /// </summary>
@@ -26,20 +21,16 @@ namespace Unit04.Game.Casting
         {}
        
 
-    // 3) Create the GetMessage() method. Use the following method comment.
-        
         /// <summary>
-        /// Gets the artifact's message.
+        /// Gets the artifact's value.
         /// </summary>
-        /// <returns>The message as a string.</returns>
+        /// <returns>The value as an int.</returns>
         public int GetValue()
         {
             return _value;
         }
         
 
-    // 4) Create the SetMessage(string message) method. Use the following method comment.
-        
         /// <summary>
         /// Sets the artifact's value to the given value.
         /// </summary>

@@ -25,7 +25,7 @@ namespace Unit04.Game.Services
         }
 
         /// <summary>
-        /// Gets the selected direction based on the currently pressed keys.
+        /// Gets the selected direction based on the currently pressed keys (ignoring y-axis).
         /// </summary>
         /// <returns>The direction as an instance of Point.</returns>
         public Point GetDirection()

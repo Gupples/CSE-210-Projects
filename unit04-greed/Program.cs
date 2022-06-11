@@ -121,7 +121,6 @@ namespace Unit04
             Director director = new Director(keyboardService, videoService);
             director.StartGame(cast);
 
-            // test comment
         }
     }
 }
